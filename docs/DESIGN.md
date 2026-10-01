@@ -2,8 +2,9 @@
 
 Intent, not reality. When the build disagrees with this file, that is a RECONCILE, not an edit here.
 
-## Layout source (D11)
-The shell copies the user's own game, **Bucking Bull Genetics Sim**: https://jordanpadron1212-art.github.io/rodeogenetics-sim/ (build 5.81, read 2026-09-30).
+## Layout source (D11, D19)
+**D19: the bull sim is the idea, not a template.** V1 follows the concepts below and is built from front-office's shell, grid and books.
+The inspiration is the user's own game, **Bucking Bull Genetics Sim**: https://jordanpadron1212-art.github.io/rodeogenetics-sim/ (build 5.81, read 2026-09-30).
 A local copy is kept for reference at `docs/reference/rodeogenetics-sim.html`. It is 4.2 MB and git-ignored, because it already lives in the user's rodeogenetics-sim repo.
 
 ### Shell anatomy (observed at 1440×900 and 375×812)

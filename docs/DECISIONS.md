@@ -36,6 +36,7 @@ User said they will provide the layout. This replaces the default desk-shell lay
 
 **D11 · 2026-09-30 · The UI shell is the user's Bucking Bull Genetics Sim layout (OOTP black skin), adapted to business entities.**
 The user pointed at their own game as "the same layout". It brings the icon rail, the top stat bar with Week/Month advance, the equity-research Company page, a phone dropdown nav and grid↔list tables. Details are in `docs/DESIGN.md`. This narrows D04: the "desk dark" look means that black OOTP skin, not the default desk shell. Rejected: the front-office default desk shell. Measured: reference build 5.81, 4.2 MB.
+SUPERSEDED BY D19 (wording only): the bull sim is the inspiration, not a template to copy.
 
 **D12 · 2026-10-01 · V1 sells 15 products in four specialty categories: grocery (bread, milk, eggs, coffee, soda, frozen pizza), apparel (jeans, t-shirts, sneakers), electronics (smartphone, laptop, TV), drugstore (shampoo, cosmetics, generic medicine).**
 User accepted the proposal. Each store holds 4 products per floor, so a full grocery range needs a second floor. Rejected: a wider catalog in V1. Measured: n/a.
@@ -68,3 +69,12 @@ Rejected:
 - IBM Plex fonts and the menu nav (they conflict with the D11 shell).
 - IndexedDB from day one (the deskcheck harness saves synchronously; switch only if the size gate trips).
 Measured: n/a.
+
+**D19 · 2026-10-01 · The bull sim is the layout idea, not a template: V1 follows its concepts and is built from front-office's shell. SUPERSEDES D11 (wording only).**
+User: "it does not have to be exactly like the bull sim but just the idea of it." The concepts kept are:
+- a left icon rail;
+- a top bar with a date/stat strip and the advance buttons;
+- an equity-research Company page (ticker, KPI row, Overview/Financials/Segments/Peers);
+- a bottom status bar;
+- a black, flat, zero-radius, hairline, tabular-numeral skin.
+The build uses front-office's hand-rolled grid and books engine. None of the bull sim's libraries are lifted. Measured on build 5.81 (4,230,376 bytes): ag-Grid 1,645,991 B, TradingView Lightweight Charts 163,701 B, game script 1,684,095 B, terminal 265,554 B, CSS 423,535 B. The bull sim also keeps cash as a literal (`G.cash`, `G.debt`), with no `post()`; front-office's books law replaces that here. Rejected: a pixel copy of the bull-sim CSS and markup; lifting ag-Grid (front-office table law: hand-rolled grid, no 1.6 MB library). Measured: the sizes above, by script block.
