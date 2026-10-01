@@ -32,3 +32,6 @@ User: "play exactly like cap lab as far as the data goes … even deeper". Same 
 
 **D10 · 2026-09-30 · The user supplies the UI layout for mobile and PC; we build to it.**
 User said they will provide the layout. This replaces the default desk-shell layout pass; the dark desk look (D04) applies only where their layout leaves styling open. Rejected: designing our own layout first. Measured: n/a.
+
+**D11 · 2026-09-30 · The UI shell is the user's Bucking Bull Genetics Sim layout (OOTP black skin), adapted to business entities.**
+The user pointed at their own game as "the same layout". It brings the icon rail, the top stat bar with Week/Month advance, the equity-research Company page, a phone dropdown nav and grid↔list tables. Details are in `docs/DESIGN.md`. This narrows D04: the "desk dark" look means that black OOTP skin, not the default desk shell. Rejected: the front-office default desk shell. Measured: reference build 5.81, 4.2 MB.

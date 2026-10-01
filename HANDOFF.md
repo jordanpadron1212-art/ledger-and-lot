@@ -37,7 +37,7 @@ Key anchors for the design, found in `docs/research/caplab-mechanics.md`:
 - Stale copies of the research files remain in `Documents\GitHub\ledger-and-lot` (the first location). Windows Controlled Folder Access blocks shell tools from deleting them, so the user should delete that folder manually.
 
 ## Next, in order
-1. Receive the user's layout. Map it to screens and propose the V1 scope and layout for sign-off.
+1. Layout received: it is the user's Bucking Bull Genetics Sim shell (D11, `docs/DESIGN.md`). The V1 scope and screen mapping were proposed on 2026-09-30 and are awaiting the user's sign-off.
 2. Build V1: one city, buy wholesale and sell retail, the CapLab rating model, a Books tab with real statements, save/load.
 3. Create the GitHub repo with the user and push.
 
