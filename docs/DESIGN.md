@@ -41,3 +41,36 @@ A local copy is kept for reference at `docs/reference/rodeogenetics-sim.html`. I
 | Inbox / Settings | same |
 
 Top-bar stat cells: Date `Y1 W1`, Cash, Firms, Products, Credit. Status bar: `Y1 W1 · CASH · NET · FIRMS`.
+
+## V1 scope (proposed 2026-09-30, awaiting user "go")
+**Fantasy:** one city and enough cash for a store or two. Stock from wholesalers, set prices, advertise, beat the local competitors, don't run out of cash.
+
+**Weekly tick (`▸ Week`):**
+1. **Rating.** Per product × city, every seller gets a CapLab rating: `QR·QC/60 + BR·BC/60 + (StdPr−SellPr)·PC/StdPr` (`docs/research/caplab-mechanics.md`). Share is split by rating; the formula is ours to design because CapLab's is unpublished.
+2. **Market size** = population × per-capita category spend (BLS CE shares) × city wage index. It is shown to the player, unlike CapLab.
+3. Stores sell, capped by stock, sales-unit capacity and staff.
+4. Purchase units restock from the wholesaler. Wholesale = retail × (1 − Census ARTS gross margin for the category).
+5. Costs post: wages (BLS OEWS + ~19% retail benefits), rent (~$25.65/sf/yr C&W), utilities, ads, interest.
+6. Brand grows with ad spend and decays without it.
+7. Month close: depreciation, interest accrual, credit-rating update. All money moves through `post()`.
+
+**Player decisions:** build or lease a store on a plot (type, size) · the 3×3 unit layout (purchase/sales/advertising) and the product range · prices, with a what-if of expected share · ad budget, staffing, training · borrow or repay (limit set by credit rating).
+
+**Tabs:** Company (incl. Financials: IS/BS/**cash flow**, every line drillable) · Firms (grid; drill → 3×3 units + firm P&L) · Products · Markets (size, shares, ratings, "why you're winning or losing") · Map · Finance (loans, rating, runway) · Ledger (journal, search, export) · Settings.
+
+**Products (proposed):**
+- Grocery: bread, milk, eggs, coffee, soda, frozen pizza
+- Apparel: jeans, t-shirts, sneakers
+- Electronics: smartphone, laptop, TV
+- Drugstore: shampoo, cosmetics, generic medicine
+
+**Scenarios:**
+1. Savings start: $250k cash, no debt.
+2. SBA start: $150k own funds + $500k loan.
+3. Inherited mess: a rundown supermarket, stale stock, weak brand, debt near its limit.
+
+Hardcore mode (bankruptcy ends the run) or normal mode (bailout).
+
+**Open questions put to the user:** keep these products? Is starting money right? Is a weekly turn OK? A real city (e.g. Dallas/Houston) or a fictional one? If unanswered, use the proposals above, a weekly turn and a real Texas city.
+
+**Later passes, in order:** factories + recipes → farms/mines/oil → multi-city + freight → AI corporations → R&D/tech → stocks/bonds/takeovers.

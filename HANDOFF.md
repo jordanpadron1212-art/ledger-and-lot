@@ -28,7 +28,7 @@ Key anchors for the design, found in `docs/research/caplab-mechanics.md`:
 
 ## Genuinely still open
 - **Needs the user:** the UI layout for mobile and PC. They said they will provide it. Nothing gets built before it arrives.
-- **Done 2026-09-30:** the GitHub repo was created by the user and pushed. GitHub Pages is not enabled yet; turn it on once `site/index.html` exists. The `gh` CLI is not installed.
+- **Done 2026-09-30:** the GitHub repo was created by the user and pushed. GitHub Pages is not enabled yet; turn it on once site/index.html exists. The `gh` CLI is not installed.
 - **Unfinished research:** 9 of the 25 product BOM rows are T3 placeholders; the demand-split formula between competitors is unpublished (we must design it); Census industry cost data needs an API key; the industrial rent figure was not parsed from its PDF.
 - **Decided against:** modding CapMain.exe (D01); copying CapLab data rows (D08).
 
@@ -42,4 +42,4 @@ Key anchors for the design, found in `docs/research/caplab-mechanics.md`:
 3. Enable GitHub Pages (Settings → Pages → main) once V1 exists.
 
 ## Opening move
-Ask the user for the layout (or check whether they already sent it), then propose V1.
+The V1 plan (`docs/DESIGN.md` → "V1 scope") was presented to the user on 2026-09-30, along with 4 open questions: products, starting money, weekly turn, real or fictional city. They had not answered or said "go" yet; they were setting up a new Claude project session on this repo, to work from phone and PC. Ask for their answers or a "go", then build V1 to site/index.html.
