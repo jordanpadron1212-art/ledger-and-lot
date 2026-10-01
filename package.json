@@ -1,0 +1,13 @@
+{
+  "name": "ledger-and-lot",
+  "private": true,
+  "description": "Dev tooling only (QA harness). The shipped game is one self-contained HTML file with no runtime dependencies (D02, D17).",
+  "scripts": {
+    "docs-check": "node qa/docs-check.js",
+    "deskcheck": "node qa/deskcheck.js site/index.html --months 40",
+    "inventory": "node qa/inventory.js site/index.html"
+  },
+  "devDependencies": {
+    "playwright": "1.63.0"
+  }
+}

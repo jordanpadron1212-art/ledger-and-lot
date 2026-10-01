@@ -45,9 +45,16 @@ Key anchors for the design, found in `docs/research/caplab-mechanics.md`:
 - **One branch only: `main`** (CLAUDE.md). The stray `claude/kind-bardeen-13gves` branch was fast-forwarded into `main` and deleted.
 
 ## Next, in order
-1. Finish the DFW research pass → `docs/research/dfw-v1.md`. Gaps: fit-out cost, triple-net charges, lease deposits, weekday sales split, monthly seasonality, ad response.
-2. Present the V1 build summary and get the user's go. Then build V1 into site/index.html from src/ fragments (D17).
+1. **Move work to the PC** (the cloud session has only 4 CPUs, so workflows run 2 agents at a time; measured 2026-10-01: 251 agent-minutes took 126 min). On the PC, start Claude Code in `C:\Users\jorda\Projects\ledger-and-lot` and have it run `tools/pc-setup.ps1`. The script pulls `main`, installs Playwright and Chromium for QA, installs the Claude CLI if missing, runs the checks, and prints how many agents run at once (logical CPUs − 2, max 16; assumed). `-Launch` starts `claude remote-control`, so the phone app can drive the PC session; `-NoSleep` stops sleep while plugged in.
+2. Present the V1 build summary: draft structure in DESIGN.md plus `docs/research/dfw-v1.md`. Two calls are needed from the user: the start date (proposed Fri 1 Jan 2027, so the fiscal year equals the calendar year) and trade areas (a store sells to its grid cell, plus neighbouring cells for apparel and electronics, not the whole 8.48M metro). Then build V1 step 1 on the user's go: shell + books + clock + Savings scenario + one convenience store + grocery + Books tab.
 3. Enable GitHub Pages (Settings → Pages → main) once V1 exists.
 
+## Research status
+`docs/research/dfw-v1.md` + `docs/research/dfw-v1-data.json` hold 518 rows across 11 topics. The checker confirmed 512, corrected 6 and lowered the tier on 8. Each topic lists what was "Not found" (114 items, mostly nice-to-haves). The final reviewer agent was killed by an interrupt; its gap ranking was not produced. Lesson: an interrupt kills a running background workflow, so do not interrupt during one, or run it on the PC.
+
+## Could NOT verify (2026-10-01)
+- `tools/pc-setup.ps1` was tested on Linux with PowerShell 7.5.3 and stubs for the Windows-only commands. It parses, uses no PowerShell-7-only syntax, and the git, Node and `npm ci` steps ran clean. The Chromium launch, Claude CLI, checks, CPU-count and power steps were **not** executed. First real run is on the PC.
+- The C&W DFW $24.78 rent basis (NNN vs gross) remains unverified (see the lease section).
+
 ## Opening move
-Check whether `docs/research/dfw-v1.md` exists. If it does, present the V1 build summary and wait for "go". If it doesn't, finish the research first.
+If this session runs on the PC and the node_modules folder is missing, run `tools/pc-setup.ps1` first. Then present the V1 build summary and wait for "go".

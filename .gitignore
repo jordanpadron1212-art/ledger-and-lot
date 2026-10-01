@@ -1,2 +1,5 @@
 # 4.2 MB copy of the user's own published bull sim, kept locally as a layout reference only
 docs/reference/
+
+# Dev tooling (QA harness only; the game has no dependencies)
+node_modules/
