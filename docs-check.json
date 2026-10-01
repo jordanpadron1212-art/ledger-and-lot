@@ -1,0 +1,6 @@
+{
+  "ignoreRefs": [
+    "docs/reference/",
+    "docs/reference/rodeogenetics-sim.html"
+  ]
+}

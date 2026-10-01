@@ -26,7 +26,7 @@ A local copy is kept for reference at `docs/reference/rodeogenetics-sim.html`. I
 - **Tables:** the shared grid with column presets per view, Sort pills, Grid/List toggle, and +/− density.
 - **Toasts:** dark card bottom-left with the build/update message.
 
-## Ledger & Lot mapping (proposed, awaiting user sign-off)
+## Ledger & Lot mapping (signed off 2026-10-01)
 | Bull sim | Ledger & Lot |
 |---|---|
 | Company (overview) | Company. Same page: ticker, KPI row, Overview/Financials/Segments/Peers, Key Stats, Key Assets = top firms |
@@ -40,19 +40,22 @@ A local copy is kept for reference at `docs/reference/rodeogenetics-sim.html`. I
 | Terminal | Terminal. Dense multi-panel desk view, PC only |
 | Inbox / Settings | same |
 
-Top-bar stat cells: Date `Y1 W1`, Cash, Firms, Products, Credit. Status bar: `Y1 W1 · CASH · NET · FIRMS`.
+Top-bar stat cells: Date (real calendar date), Cash, Firms, Products, Credit. Advance buttons `▸ Day` / `▸ Week` / `▸ Month` (D14). Status bar: `DATE · CASH · NET · FIRMS`.
 
-## V1 scope (proposed 2026-09-30, awaiting user "go")
+## V1 scope (signed off 2026-10-01, D12–D15)
 **Fantasy:** one city and enough cash for a store or two. Stock from wholesalers, set prices, advertise, beat the local competitors, don't run out of cash.
 
-**Weekly tick (`▸ Week`):**
+**Daily tick (`▸ Day`; `▸ Week` / `▸ Month` run 7 or to-month-end daily ticks), D14.** Real calendar months.
+Cadence: daily = sales, deliveries, spoilage, cash · biweekly = payroll · monthly = rent, utilities, interest, depreciation, books close · quarterly = tax payments · yearly = year-end close.
+
+**Tick steps (daily unless noted):**
 1. **Rating.** Per product × city, every seller gets a CapLab rating: `QR·QC/60 + BR·BC/60 + (StdPr−SellPr)·PC/StdPr` (`docs/research/caplab-mechanics.md`). Share is split by rating; the formula is ours to design because CapLab's is unpublished.
 2. **Market size** = population × per-capita category spend (BLS CE shares) × city wage index. It is shown to the player, unlike CapLab.
 3. Stores sell, capped by stock, sales-unit capacity and staff.
 4. Purchase units restock from the wholesaler. Wholesale = retail × (1 − Census ARTS gross margin for the category).
-5. Costs post: wages (BLS OEWS + ~19% retail benefits), rent (~$25.65/sf/yr C&W), utilities, ads, interest.
+5. Costs post on their cadence: wages biweekly (BLS OEWS + ~19% retail benefits), rent monthly (DFW metro retail rent), utilities, ads, interest.
 6. Brand grows with ad spend and decays without it.
-7. Month close: depreciation, interest accrual, credit-rating update. All money moves through `post()`.
+7. Month close (calendar month end): depreciation, interest accrual, credit-rating update. All money moves through `post()`.
 
 **Player decisions:** build or lease a store on a plot (type, size) · the 3×3 unit layout (purchase/sales/advertising) and the product range · prices, with a what-if of expected share · ad budget, staffing, training · borrow or repay (limit set by credit rating).
 
@@ -71,6 +74,6 @@ Top-bar stat cells: Date `Y1 W1`, Cash, Firms, Products, Credit. Status bar: `Y1
 
 Hardcore mode (bankruptcy ends the run) or normal mode (bailout).
 
-**Open questions put to the user:** keep these products? Is starting money right? Is a weekly turn OK? A real city (e.g. Dallas/Houston) or a fictional one? If unanswered, use the proposals above, a weekly turn and a real Texas city.
+**User answers (2026-10-01):** products as listed (D12); the three scenarios as listed, with Scenario 1 deliberately tight, enough for a convenience store or small drugstore but not apparel (D13); daily tick with monthly close (D14); Dallas–Fort Worth with real metro numbers on an abstract grid map (D15). V1 is lease-only; building comes in a later pass.
 
 **Later passes, in order:** factories + recipes → farms/mines/oil → multi-city + freight → AI corporations → R&D/tech → stocks/bonds/takeovers.
