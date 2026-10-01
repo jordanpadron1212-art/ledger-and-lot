@@ -13,7 +13,7 @@ A local copy is kept for reference at `docs/reference/rodeogenetics-sim.html`. I
   - Right: `▸ Week` / `▸ Month` advance buttons, save, zoom `− 100% +`, the theme toggle and an avatar.
 - **Left icon rail (PC):** icon + short label per tab, with Inbox and Settings pinned to the bottom.
 - **Status bar (PC, bottom):** a green dot and a state label, then `Y1 W1 · SEASON · CASH · NET · HEAD`, with the brand on the right.
-- **Phone:**
+- **Phone (reference only: deferred to the mobile pass, not built in V1, D16):**
   - The top stat strip stays.
   - The rail becomes a dropdown nav trigger ("Company ▾") next to `− + save ▸Week ▸Month`.
   - Panels stack, and tables become row lists with labelled mini-fields (`PWR 50 PTS 0 … VALUE $1,700`) plus a Sort pill row and a `⊞ Grid` toggle.
@@ -45,6 +45,8 @@ Top-bar stat cells: Date (real calendar date), Cash, Firms, Products, Credit. Ad
 ## V1 scope (signed off 2026-10-01, D12–D15)
 **Fantasy:** one city and enough cash for a store or two. Stock from wholesalers, set prices, advertise, beat the local competitors, don't run out of cash.
 
+**Platform (D16):** PC only, 1280px and wider, verified at 1280×800 and 1920×1080. **Source (D17):** fragments composed into one shipped HTML file. **Engine rules (D18):** seeded RNG streams, a real-engine what-if, a golden test, loud saves with a 2 MB gate, one consolidated GL entry per day plus a sales sub-ledger, and named phase lists.
+
 **Daily tick (`▸ Day`; `▸ Week` / `▸ Month` run 7 or to-month-end daily ticks), D14.** Real calendar months.
 Cadence: daily = sales, deliveries, spoilage, cash · biweekly = payroll · monthly = rent, utilities, interest, depreciation, books close · quarterly = tax payments · yearly = year-end close.
 
@@ -57,11 +59,11 @@ Cadence: daily = sales, deliveries, spoilage, cash · biweekly = payroll · mont
 6. Brand grows with ad spend and decays without it.
 7. Month close (calendar month end): depreciation, interest accrual, credit-rating update. All money moves through `post()`.
 
-**Player decisions:** build or lease a store on a plot (type, size) · the 3×3 unit layout (purchase/sales/advertising) and the product range · prices, with a what-if of expected share · ad budget, staffing, training · borrow or repay (limit set by credit rating).
+**Player decisions:** lease a store on a plot (type, size; building comes in a later pass, D15) · the 3×3 unit layout (purchase/sales/advertising) and the product range · prices, with a what-if of expected share · ad budget, staffing, training · borrow or repay (limit set by credit rating).
 
 **Tabs:** Company (incl. Financials: IS/BS/**cash flow**, every line drillable) · Firms (grid; drill → 3×3 units + firm P&L) · Products · Markets (size, shares, ratings, "why you're winning or losing") · Map · Finance (loans, rating, runway) · Ledger (journal, search, export) · Settings.
 
-**Products (proposed):**
+**Products (D12):**
 - Grocery: bread, milk, eggs, coffee, soda, frozen pizza
 - Apparel: jeans, t-shirts, sneakers
 - Electronics: smartphone, laptop, TV
@@ -75,5 +77,7 @@ Cadence: daily = sales, deliveries, spoilage, cash · biweekly = payroll · mont
 Hardcore mode (bankruptcy ends the run) or normal mode (bailout).
 
 **User answers (2026-10-01):** products as listed (D12); the three scenarios as listed, with Scenario 1 deliberately tight, enough for a convenience store or small drugstore but not apparel (D13); daily tick with monthly close (D14); Dallas–Fort Worth with real metro numbers on an abstract grid map (D15). V1 is lease-only; building comes in a later pass.
+
+**Mobile pass (D16):** phone nav, grid list mode and 360px verification; the user picks when.
 
 **Later passes, in order:** factories + recipes → farms/mines/oil → multi-city + freight → AI corporations → R&D/tech → stocks/bonds/takeovers.

@@ -8,6 +8,7 @@ The user wants to change finance screens and business logic, which are compiled 
 
 **D02 · 2026-09-30 · The game is one self-contained HTML file with no build step, frameworks or CDNs.**
 Runs on PC and phone by opening a file or a URL; saves are `JSON.stringify(G)` in the browser plus export. Rejected: a game engine (Unity/Godot) or a React app — heavier, and fights the spreadsheet-first design. Measured: n/a.
+SUPERSEDED BY D17 (wording only): "no build step" now means no runtime build. Source is authored as fragments and composed into the one shipped file.
 
 **D03 · 2026-09-30 · Setting is modern day (US-calibrated numbers), scope balanced like Capitalism Lab.**
 User's choice: retail, manufacturing, raw materials and finance all in play. Rejected: historical climb from ~1950; fictional world; finance-only or operations-only focus. Measured: n/a.
@@ -47,3 +48,23 @@ User chose a daily tick over the proposed weekly one. Cadence: daily sales, deli
 
 **D15 · 2026-10-01 · V1's city is Dallas–Fort Worth, with real metro figures on an abstract plot grid; V1 stores are leased only.**
 User accepted. Rejected: a fictional city; buying land and building in V1 (land plus construction at $155–350/sf is out of reach of every start). Measured: n/a.
+
+**D16 · 2026-10-01 · V1 targets PC only (1280px and wider); the phone layout comes in a dedicated later pass.**
+User's call; it suits this game. The pitch is drillable three-statement books and wide market tables, which need width. V1 ships no phone layout at all: it is left out, not hidden. Every table still renders through the one grid engine, and all styling goes through `:root` tokens, so the mobile pass adds the phone nav, the grid's list mode and 360px checks in one place instead of reworking every tab. This is a deliberate exception to front-office's phone-first law, for this game only. Visual QA runs at 1280×800 and 1920×1080; 1280 is also the terminal tab's existing minimum. Rejected: phone-first V1 (doubles visual QA, and the statements cannot show comparison columns at 360px); a multi-file React app for PC (see D17). Measured: n/a.
+
+**D17 · 2026-10-01 · The source is authored as fragments in src/; tools/compose.js joins them into site/index.html, the one shipped file. SUPERSEDES D02 (wording only).**
+The shipped game stays one self-contained HTML file, with no runtime build, framework or CDN. The compose step is dev-time only. It concatenates the fragments, syntax-checks the joined script, and checks that every `data-act` has an `ACTIONS` key (front-office speed.md §2: never hand-edit a file past ~3,000 lines). The `jordanpadron1212-art/mobile-sim-factory` repo was reviewed for this. It is docs-only, with no code to reuse, and its planned stack is React 19 + TypeScript + Vite + pnpm. Rejected: adopting that stack, because it would require building the factory first and rewriting the bull-sim shell (D11), which is plain HTML. File size is not the constraint: the bull sim ships as one 4.2 MB file. Measured: n/a.
+
+**D18 · 2026-10-01 · Engine rules adopted from mobile-sim-factory: seeded RNG streams, a real-engine what-if, a golden test, loud saves with a size gate, a consolidated daily ledger, and named phase lists.**
+1. **Seeded RNG.** sfc32 with named streams (`demand`, `rivals`, `events`, …). The 4×u32 state lives in `G`, and the sim never calls `Math.random`. Same seed, same game. Front-office's `ri/rf/pick/gauss` keep their signatures but draw from the streams.
+2. **What-if runs the real engine.** Price and stock previews run the real daily phases on `structuredClone(G)`, with the RNG streams forked from the live state. The preview is then exactly the outcome if nothing else changes.
+3. **Golden test.** A fixed seed is run for 3 sim years, then a hash of `G` is taken. An unexplained change to that hash fails QA. deskcheck catches crashes, NaN and audit failures, but not silent behaviour drift.
+4. **Saves never fail silently.** A save failure shows a toast and offers an export. The soak test measures save size at years 1, 3 and 5 and fails above 2 MB. This matters because Ledger & Lot and the bull sim share one browser storage quota on `jordanpadron1212-art.github.io` (verified: same origin). The ~5 MB localStorage limit is assumed.
+5. **One consolidated ledger entry per day.** The general ledger gets one consolidated sales/COGS entry per day. Store × product detail goes to a sales sub-ledger, which feeds the segment reports. Estimate: posting per product would add ~1 MB per store per year, against ~0.07 MB per year consolidated.
+6. **Named phase lists.** The daily, biweekly, monthly, quarterly and yearly steps are each an ordered named array, so the order "close before new charges" is visible and testable.
+Rejected:
+- Integer-cent money (front-office `r2()` with a 2¢ audit is enough; Impact: negligible).
+- The factory's 256-entry journal cap (front-office already keeps 2 years of journal).
+- IBM Plex fonts and the menu nav (they conflict with the D11 shell).
+- IndexedDB from day one (the deskcheck harness saves synchronously; switch only if the size gate trips).
+Measured: n/a.

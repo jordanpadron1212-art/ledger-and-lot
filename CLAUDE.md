@@ -13,7 +13,8 @@ Use the `front-office` skill for the game itself (architecture, books, grid, QA 
 
 ## Session close (every session, including phone sessions)
 - Patch `HANDOFF.md` (don't rewrite it); append decisions to `docs/DECISIONS.md` as `**Dnn · YYYY-MM-DD · rule.**` + Rejected/Measured.
-- Commit with a clear message and **push to `origin/main`** (or to the session branch and open a PR if working in a cloud sandbox) so the other device sees the work.
+- Commit with a clear message and **push to `origin/main`** so the other device sees the work.
+- **One branch only: `main`.** This includes cloud sandboxes. Never create a session or feature branch and never open a PR. If a sandbox starts you on another branch, switch to `main` before committing (user, 2026-10-01).
 - Record anything you could not verify.
 
 ## Notes
