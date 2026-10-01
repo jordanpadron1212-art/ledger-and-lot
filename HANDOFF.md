@@ -2,7 +2,7 @@
 
 **Current version:** none yet. No build exists; the project is at research and design stage.
 **Live at:** not deployed.
-**Folder:** `C:\Users\jorda\Projects\ledger-and-lot` (git initialised locally on `main`, no remote yet)
+**Folder:** `C:\Users\jorda\Projects\ledger-and-lot` (git `main` tracks origin https://github.com/jordanpadron1212-art/ledger-and-lot, public; pushing from the shell works with stored credentials)
 
 ## What this is
 A Capitalism Lab–style business sim as one self-contained HTML file. It is spreadsheet and data driven, with a simple city-grid map, a modern-day US setting and real double-entry books. The simulation model mirrors Capitalism Lab's data model and goes deeper (`docs/DECISIONS.md` D09). The user is supplying the UI layout for mobile and PC (D10).
@@ -28,7 +28,7 @@ Key anchors for the design, found in `docs/research/caplab-mechanics.md`:
 
 ## Genuinely still open
 - **Needs the user:** the UI layout for mobile and PC. They said they will provide it. Nothing gets built before it arrives.
-- **Needs the user:** a GitHub repo name and visibility. They said "we will create a new github repo" together. The `gh` CLI is not installed; git is.
+- **Done 2026-09-30:** the GitHub repo was created by the user and pushed. GitHub Pages is not enabled yet; turn it on once `site/index.html` exists. The `gh` CLI is not installed.
 - **Unfinished research:** 9 of the 25 product BOM rows are T3 placeholders; the demand-split formula between competitors is unpublished (we must design it); Census industry cost data needs an API key; the industrial rent figure was not parsed from its PDF.
 - **Decided against:** modding CapMain.exe (D01); copying CapLab data rows (D08).
 
@@ -39,7 +39,7 @@ Key anchors for the design, found in `docs/research/caplab-mechanics.md`:
 ## Next, in order
 1. Layout received: it is the user's Bucking Bull Genetics Sim shell (D11, `docs/DESIGN.md`). The V1 scope and screen mapping were proposed on 2026-09-30 and are awaiting the user's sign-off.
 2. Build V1: one city, buy wholesale and sell retail, the CapLab rating model, a Books tab with real statements, save/load.
-3. Create the GitHub repo with the user and push.
+3. Enable GitHub Pages (Settings → Pages → main) once V1 exists.
 
 ## Opening move
 Ask the user for the layout (or check whether they already sent it), then propose V1.
